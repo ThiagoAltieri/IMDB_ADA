@@ -18,7 +18,7 @@ public class DiretorService {
     public Diretor findById(Long id) {
         if (id == null)
             throw new RuntimeException("Id nulo");
-        return this.diretorRepositorio.buscarPorId(id);
+        return (Diretor) this.diretorRepositorio.buscarPorId(id);
     }
 
     public Diretor findByNome(String nome) {

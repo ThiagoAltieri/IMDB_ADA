@@ -1,11 +1,15 @@
 package modelo;
 
+import java.util.Date;
+
 public abstract class Pessoa {
     private Long id;
     private String nome;
+    private Date dataNascimento;
     private Boolean ativo;
     public Pessoa(String nome) {
         this.nome = nome;
+        this.dataNascimento = dataNascimento;
         this.ativo = true;
     }
     public String getNome() {
@@ -13,6 +17,12 @@ public abstract class Pessoa {
     }
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
     public Boolean getAtivo() {
         return ativo;
@@ -26,5 +36,4 @@ public abstract class Pessoa {
     public void setId(Long id) {
         this.id = id;
     }
-
 }
