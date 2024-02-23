@@ -1,22 +1,26 @@
 package modelo;
 
-import modelo.Filme;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Diretor extends Pessoa {
-    private List filmes;
-    private Boolean exclusivo;
-    public Diretor(String nome, Boolean exclusivo) {
-            super(nome);
-            this.exclusivo = exclusivo;
-            this.filmes = new ArrayList();
+    private List<Filme> filmes;
+
+    // Construtor
+    public Diretor(String nome, LocalDate DataNascimento) {
+        super(nome, DataNascimento);
+        this.filmes = new ArrayList<>();
     }
-    public void adicionarFilmes(Filme filme) {
+
+    // Método para adicionar filme
+    public void adicionarFilme(Filme filme) {
         this.filmes.add(filme);
     }
-    public List getFilmes() {
+
+    // Método para obter filmes (retorna uma lista imutável)
+    public List<Filme> getFilmes() {
         return Collections.unmodifiableList(this.filmes);
     }
 }

@@ -1,41 +1,56 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 public class Filme {
-    private Long id;
     private final String nome;
     private final Diretor diretor;
     private final LocalDate dataLancamento;
     private final String genero;
-    private final List atores;
-    public Filme(String nome, Diretor diretor, LocalDate dataLancamento, String genero, List atores) {
+    private final List<Ator> atores;
+    private final List<Diretor> diretores;
+
+    public Filme(String nome, Diretor diretor, LocalDate dataLancamento, String genero, List<Ator> atores) {
         this.nome = nome;
         this.diretor = diretor;
         this.dataLancamento = dataLancamento;
         this.genero = genero;
-        this.atores = atores;
+        this.atores = new ArrayList<>(atores);
+        this.diretores = new ArrayList<>();
     }
+
     public String getNome() {
         return nome;
     }
+
     public Diretor getDiretor() {
         return diretor;
     }
+
     public LocalDate getDataLancamento() {
         return dataLancamento;
     }
+
     public String getGenero() {
         return genero;
     }
-    public List getAtores() {
+
+    public List<Ator> getAtores() {
         return Collections.unmodifiableList(atores);
     }
-    public Long getId() {
-        return id;
+
+    public void addAtor(Ator ator) {
+        atores.add(ator);
     }
-    public void setId(Long id) {
-        this.id = id;
+
+    public List<Diretor> getDiretores() {
+        return Collections.unmodifiableList(diretores);
+    }
+
+    public void addDiretor(Diretor diretor) {
+        diretores.add(diretor);
     }
 }
